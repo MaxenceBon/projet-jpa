@@ -36,6 +36,12 @@ public enum Sexe {
 	public void setSexe(String sexe) {
 		this.sexe = sexe;
 	}
+
+
+	public Sexe forName(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

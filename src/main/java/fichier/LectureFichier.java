@@ -1,5 +1,6 @@
 package fichier;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,7 +19,7 @@ import enums.Sexe;
 
 public class LectureFichier {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 
 		List<Athlete> athletes = new ArrayList<Athlete>();
@@ -38,12 +39,12 @@ public class LectureFichier {
 			for (int i = 1; i < lignes.size(); i++) {
 				String[] tokenString = lignes.get(i).split(";");
 				String nom = tokenString[1];
-				String age = tokenString[3];
-				String taille = tokenString[5];
-				String poids = tokenString[4];
+				int age = Integer.parseInt(tokenString[3]);
+				int taille = Integer.parseInt(tokenString[5]);
+				int poids = Integer.parseInt(tokenString[4]);
 				String sexe = tokenString[2];
-				String population = tokenString[9].replaceAll(" ","");
 				
+//				athletes.add(new Athlete(nom, age, taille, poids, sexe));
 			}
 	
 		

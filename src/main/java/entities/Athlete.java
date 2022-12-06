@@ -96,7 +96,10 @@ public class Athlete{
 		this.setSexe(sexe);
 	}
 
-
+	public Athlete() {
+		
+	}
+	
 	/** Getter pour id
 	 * @return the id
 	 */
