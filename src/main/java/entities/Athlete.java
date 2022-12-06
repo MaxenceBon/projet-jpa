@@ -37,9 +37,6 @@ public class Athlete{
 	@Column(name="NOM", length = 100, nullable = false, unique = false)
 	private String nom;
 	
-	@Column(name="SEXE", nullable = true, unique = false)
-	private String prenom;
-	
 	@Column(name="AGE", nullable = true, unique = false)
 	private int age;
 	
@@ -91,9 +88,8 @@ public class Athlete{
 	 * @param poids
 	 * @param sexe
 	 */
-	public Athlete(String nom, String prenom, int age, int taille, int poids, Sexe sexe) {
+	public Athlete(String nom, int age, int taille, int poids, Sexe sexe) {
 		this.nom=nom;
-		this.prenom=prenom;
 		this.age=age;
 		this.taille=taille;
 		this.poids=poids;
@@ -132,21 +128,6 @@ public class Athlete{
 		this.nom = nom;
 	}
 
-
-	/** Getter pour prenom
-	 * @return the prenom
-	 */
-	public String getPrenom() {
-		return prenom;
-	}
-
-
-	/** Setter pour prenom
-	 * @param prenom the prenom to set
-	 */
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
 
 
 	/** Getter pour age

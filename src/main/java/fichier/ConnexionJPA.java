@@ -1,4 +1,4 @@
-package entities;
+package fichier;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
