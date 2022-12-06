@@ -14,6 +14,14 @@ import javax.persistence.OneToMany;
 
 public class Pays {
 
+	
+	/** Classe Athlete
+	 * @column id
+	 * @column nomPays
+	 * @column obselete
+	 * @column codeCio
+	 * @column codeIso
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID_PAYS")
@@ -31,9 +39,17 @@ public class Pays {
 	@Column(name="CODE_ISO", nullable = true, unique = true)
 	private int codeIso;
 
+	
+	/**Relation one to many
+	 * entre Pays et Athlete
+	 */
 	@OneToMany(mappedBy = "pays")
 	private List<Athlete> athletes = new ArrayList<Athlete>();
 	
+	
+	/**Relation many to many - Table d'association
+	 * entre Pays et Equipe
+	 */
 	@ManyToMany(mappedBy = "pays")
 	@JoinTable(name = "PAYS_EQUIPE", 
 				joinColumns = @JoinColumn(name= "ID_PAYS", referencedColumnName = "ID"),
@@ -41,6 +57,13 @@ public class Pays {
 	private List<Equipe> equipes = new ArrayList<Equipe>();
 	
 	
+	
+	/** Constructor
+	 * @param nomPays
+	 * @param obselete
+	 * @param codeCio
+	 * @param codeIso
+	 */
 	public Pays(String nomPays, boolean obselete, String codeCio, int codeIso) {
 		this.nomPays=nomPays;
 		this.obselete=obselete;
@@ -62,15 +85,15 @@ public class Pays {
 		this.id = id;
 	}
 
-	/** Getter pour nom
-	 * @return the nom
+	/** Getter pour nomPays
+	 * @return the nomPays
 	 */
 	public String getNomPays() {
 		return nomPays;
 	}
 
-	/** Setter pour nom
-	 * @param nom the nom to set
+	/** Setter pour nomPays
+	 * @param nom the nomPays to set
 	 */
 	public void setNom(String nomPays) {
 		this.nomPays = nomPays;
@@ -117,6 +140,35 @@ public class Pays {
 	public void setCodeIso(int codeIso) {
 		this.codeIso = codeIso;
 	}
+
+	/** Getter pour athletes
+	 * @return the athletes
+	 */
+	public List<Athlete> getAthletes() {
+		return athletes;
+	}
+
+	/** Setter pour athletes
+	 * @param athletes the athletes to set
+	 */
+	public void setAthletes(List<Athlete> athletes) {
+		this.athletes = athletes;
+	}
+
+	/** Getter pour equipes
+	 * @return the equipes
+	 */
+	public List<Equipe> getEquipes() {
+		return equipes;
+	}
+
+	/** Setter pour equipes
+	 * @param equipes the equipes to set
+	 */
+	public void setEquipes(List<Equipe> equipes) {
+		this.equipes = equipes;
+	}
+	
 	
 	
 }

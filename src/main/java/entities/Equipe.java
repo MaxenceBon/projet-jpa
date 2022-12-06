@@ -11,6 +11,11 @@ import javax.persistence.ManyToMany;
 
 public class Equipe {
 
+	
+	/** Classe Athlete
+	 * @column id
+	 * @column nomEquipe
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID_EQUIPE")
@@ -19,13 +24,24 @@ public class Equipe {
 	@Column(name="NOM_EQUIPE", length = 100, nullable = false, unique = false)
 	private String nomEquipe;
 	
+	
+	/**Relation many to many
+	 * entre Equipe et Pays
+	 */
 	@ManyToMany(mappedBy = "pays")
 	private List<Pays> pays = new ArrayList<Pays>();
 	
+	
+	/**Relation many to many
+	 * entre Equipe et Epreuve
+	 */
 	@ManyToMany(mappedBy = "pays")
 	private List<Epreuve> epreuves = new ArrayList<Epreuve>();
 	
 	
+	/** Constructor
+	 * @param nomEquipe
+	 */
 	public Equipe(String nomEquipe) {
 		this.nomEquipe=nomEquipe;
 	}

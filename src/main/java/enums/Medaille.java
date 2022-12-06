@@ -8,36 +8,52 @@ import entities.Epreuve;
 
 public enum Medaille {
 
+	/** Enumération pour les trois types de médailles
+	 * Bronze, Silver et Gold
+	 */
 	BRONZE("Bronze"),
 	SILVER("Silver"),
 	GOLD("Gold");
 	
-	private String medal;
 	
+	/**
+	 * @param String medaille
+	 */	
+	private String medaille;
+	
+	
+	
+	/**Relation many to one
+	 * entre Medaille et Athlete
+	 */
 	@ManyToOne
 	@JoinColumn(name="ID_ATHLETE")
 	private Athlete athlete;
 	
+	
+	/**Relation many to one
+	 * entre Medaille et Epreuve
+	 */
 	@ManyToOne
 	@JoinColumn(name="ID_EPREUVE")
 	private Epreuve epreuve;
 	
-	private Medaille(String medal) {
-		this.medal=medal;
+	private Medaille(String medaille) {
+		this.medaille=medaille;
 	}
 
-	/** Getter pour medal
-	 * @return the medal
+	/** Getter pour medaille
+	 * @return the medaille
 	 */
-	public String getMedal() {
-		return medal;
+	public String getMedaille() {
+		return medaille;
 	}
 
-	/** Setter pour medal
-	 * @param medal the medal to set
+	/** Setter pour medaille
+	 * @param medal the medaille to set
 	 */
-	public void setMedal(String medal) {
-		this.medal = medal;
+	public void setMedal(String medaille) {
+		this.medaille = medaille;
 	}
 	
 	

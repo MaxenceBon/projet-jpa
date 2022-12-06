@@ -19,6 +19,16 @@ import enums.Sexe;
 
 public class Athlete{
 
+	
+	/** Classe Athlete
+	 * @column id
+	 * @column nom
+	 * @column prenom
+	 * @column age
+	 * @column taille
+	 * @column poids
+	 * @column sexe enum
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID_ATHLETE")
@@ -44,20 +54,43 @@ public class Athlete{
 	private Sexe sexe;
 	
 	
+	/**Relation many to many
+	 * entre Athlete et Jeux
+	 */
 	@ManyToMany(mappedBy = "Athlete")
 	private List<Jeux> jeux = new ArrayList<Jeux>();
 	
+	
+	/**Relation many to many
+	 * entre Athlete et Epreuve
+	 */
 	@ManyToMany(mappedBy = "Athlete")
 	private List<Epreuve> epreuves = new ArrayList<Epreuve>();
 	
+	
+	/**Relation many to many - Table d'association
+	 * entre Epreuve et Jeux
+	 */
 	@ManyToOne
 	@JoinColumn(name="ID_PAYS")
 	private Pays pays;
 
+	
+	/**Relation one to many
+	 * entre Athlete et Medaille
+	 */
 	@OneToMany
-	private List<Medaille> medaille = new ArrayList<Medaille>();
+	private List<Medaille> medailles = new ArrayList<Medaille>();
 	
 	
+	/** Constructor
+	 * @param nom
+	 * @param prenom
+	 * @param age
+	 * @param taille
+	 * @param poids
+	 * @param sexe
+	 */
 	public Athlete(String nom, String prenom, int age, int taille, int poids, Sexe sexe) {
 		this.nom=nom;
 		this.prenom=prenom;
@@ -177,6 +210,70 @@ public class Athlete{
 	 */
 	public void setSexe(Sexe sexe) {
 		this.sexe = sexe;
+	}
+
+
+	/** Getter pour jeux
+	 * @return the jeux
+	 */
+	public List<Jeux> getJeux() {
+		return jeux;
+	}
+
+
+	/** Setter pour jeux
+	 * @param jeux the jeux to set
+	 */
+	public void setJeux(List<Jeux> jeux) {
+		this.jeux = jeux;
+	}
+
+
+	/** Getter pour epreuves
+	 * @return the epreuves
+	 */
+	public List<Epreuve> getEpreuves() {
+		return epreuves;
+	}
+
+
+	/** Setter pour epreuves
+	 * @param epreuves the epreuves to set
+	 */
+	public void setEpreuves(List<Epreuve> epreuves) {
+		this.epreuves = epreuves;
+	}
+
+
+	/** Getter pour pays
+	 * @return the pays
+	 */
+	public Pays getPays() {
+		return pays;
+	}
+
+
+	/** Setter pour pays
+	 * @param pays the pays to set
+	 */
+	public void setPays(Pays pays) {
+		this.pays = pays;
+	}
+
+
+	/** Getter pour medailles
+	 * @return the medailles
+	 */
+	public List<Medaille> getMedailles() {
+		return medailles;
+	}
+
+
+	/** Setter pour medailles
+	 * @param medailles the medailles to set
+	 */
+	public void setMedailles(List<Medaille> medailles) {
+		this.medailles = medailles;
 	}
 
 	

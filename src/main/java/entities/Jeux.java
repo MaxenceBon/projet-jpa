@@ -17,6 +17,13 @@ import enums.Saison;
 
 public class Jeux {
 
+	
+	/** Classe Athlete
+	 * @column id
+	 * @column annee
+	 * @column ville
+	 * @column saison enum
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID_JEUX")
@@ -33,17 +40,29 @@ public class Jeux {
 	private Saison saison;
 	
 	
+	/**Relation many to many - Table d'association
+	 * entre Jeux et Athlete
+	 */
 	@ManyToMany(mappedBy = "jeux")
 	@JoinTable(name = "ATHLETE_JEUX", 
 				joinColumns = @JoinColumn(name= "ID_JEUX", referencedColumnName = "ID"),
 				inverseJoinColumns = @JoinColumn(name = "ID_ATHLETE", referencedColumnName = "ID"))
 	private List<Athlete> atheletes = new ArrayList<Athlete>();
 	
+	
+	/**Relation many to many
+	 * entre Pays et Epreuve
+	 */
 	@ManyToMany(mappedBy = "jeux")
 	private List<Epreuve> epreuves = new ArrayList<Epreuve>();
 	
 	
 	
+	/** Constructor
+	 * @param annee
+	 * @param ville
+	 * @param saison
+	 */
 	public Jeux(String annee, String ville, Saison saison) {
 		this.annee=annee;
 		this.ville=ville;
@@ -118,6 +137,34 @@ public class Jeux {
 	 */
 	public void setEmprunts(List<Athlete> emprunts) {
 		this.atheletes = emprunts;
+	}
+
+	/** Getter pour atheletes
+	 * @return the atheletes
+	 */
+	public List<Athlete> getAtheletes() {
+		return atheletes;
+	}
+
+	/** Setter pour atheletes
+	 * @param atheletes the atheletes to set
+	 */
+	public void setAtheletes(List<Athlete> atheletes) {
+		this.atheletes = atheletes;
+	}
+
+	/** Getter pour epreuves
+	 * @return the epreuves
+	 */
+	public List<Epreuve> getEpreuves() {
+		return epreuves;
+	}
+
+	/** Setter pour epreuves
+	 * @param epreuves the epreuves to set
+	 */
+	public void setEpreuves(List<Epreuve> epreuves) {
+		this.epreuves = epreuves;
 	}
 	
 	

@@ -1,13 +1,23 @@
 package enums;
 
 public enum Distinction {
-
+	
+	
+	/** Enumération pour les trois types d'épreuves
+	 * Men, Women et Mixed
+	 */
 	MEN("Men"),
 	WOMEN("Women"),
 	MIXED("Mixed");
 	
+	/**
+	 * @param String distinction
+	 */	
 	private String distinction;
 	
+	/** Constructor
+	 * @param distinction
+	 */
 	private Distinction(String distinction) {
 		this.distinction=distinction;
 	}
