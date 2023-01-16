@@ -19,7 +19,6 @@ public class Sport {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_SPORT")
 	private Integer id;
 	
 	@Column(name="Libelle", length = 100, nullable = false, unique = true)

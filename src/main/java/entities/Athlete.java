@@ -31,7 +31,6 @@ public class Athlete{
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_ATHLETE")
 	private Integer id;
 	
 	@Column(name="NOM", length = 100, nullable = false, unique = false)
@@ -76,7 +75,7 @@ public class Athlete{
 	/**Relation one to many
 	 * entre Athlete et Medaille
 	 */
-	@OneToMany
+	@OneToMany (mappedBy = "athelete")
 	private List<Medaille> medailles = new ArrayList<Medaille>();
 	
 	

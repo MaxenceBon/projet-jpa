@@ -26,7 +26,6 @@ public class Jeux {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_JEUX")
 	private Integer id;
 	
 	@Column(name="ANNEE", length = 100, nullable = false, unique = false)

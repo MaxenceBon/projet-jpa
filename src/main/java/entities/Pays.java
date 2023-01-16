@@ -24,7 +24,6 @@ public class Pays {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_PAYS")
 	private Integer id;
 	
 	@Column(name="NOM_PAYS", length = 100, nullable = false, unique = false)

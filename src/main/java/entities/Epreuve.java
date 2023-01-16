@@ -26,7 +26,6 @@ public class Epreuve {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_EPREUVE")
 	private Integer id;
 	
 	@Column(name="NOM_EPREUVE", length = 100, nullable = false, unique = false)

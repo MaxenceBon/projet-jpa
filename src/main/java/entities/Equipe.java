@@ -18,7 +18,6 @@ public class Equipe {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_EQUIPE")
 	private Integer id;
 	
 	@Column(name="NOM_EQUIPE", length = 100, nullable = false, unique = false)
